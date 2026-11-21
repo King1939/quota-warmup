@@ -1,0 +1,21 @@
+{
+  "command": "node",
+  "args": ["main.mjs"],
+  "restart_policy": "always",
+  "display_name": "Quota Warmup",
+  "description": "按周一至周日自定义时间自动唤醒 Antigravity 并发送预热消息，开启五小时额度窗口。",
+  "has_web_ui": true,
+  "agent_permissions": {
+    "allows_user_interactions": false
+  },
+  "ui_config": {
+    "display_name": "Quota Warmup",
+    "views": [
+      {
+        "path": "/",
+        "entrypoint": "SIDECAR_UI_ENTRYPOINT_AUX_PANE",
+        "title": "额度预热定时"
+      }
+    ]
+  }
+}

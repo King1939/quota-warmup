@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "enabled": true,
+  "message": "你好",
+  "model": "",
+  "title": "额度预热",
+  "runIfMissed": false,
+  "days": {
+    "mon": { "enabled": false, "times": ["08:00"] },
+    "tue": { "enabled": false, "times": ["08:00"] },
+    "wed": { "enabled": false, "times": ["08:00"] },
+    "thu": { "enabled": false, "times": ["08:00"] },
+    "fri": { "enabled": false, "times": ["08:00"] },
+    "sat": { "enabled": false, "times": ["09:00"] },
+    "sun": { "enabled": false, "times": ["09:00"] }
+  },
+  "updatedAt": ""
+}

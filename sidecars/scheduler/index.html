@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>额度预热定时 · Quota Warmup</title>
+  <script src="/preload.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="card status-card">
+      <div class="status-head">
+        <div>
+          <h1 class="title">额度预热定时</h1>
+          <p class="subtitle">到点自动唤醒 Antigravity 并发送问候语开启 5 小时额度窗口</p>
+        </div>
+        <label class="switch" title="启用或暂停全部定时预热">
+          <input type="checkbox" id="global-enabled">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="status-grid">
+        <div class="stat-box">
+          <span class="stat-label">下次触发</span>
+          <span class="stat-value" id="next-run-text">加载中…</span>
+          <span class="stat-sub" id="countdown-text"></span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">系统任务计划</span>
+          <span class="stat-value" id="sync-count-text">-</span>
+          <span class="stat-sub" id="sync-time-text"></span>
+        </div>
+      </div>
+
+      <div id="sync-error-banner" class="banner error hidden"></div>
+      <div id="toast-banner" class="banner hidden"></div>
+
+      <div class="status-actions">
+        <button type="button" class="btn btn-secondary" id="trigger-now-btn">立即发送测试</button>
+        <button type="button" class="btn btn-ghost" id="sync-now-btn">重新同步任务</button>
+      </div>
+    </header>
+
+    <section class="card">
+      <div class="section-head">
+        <h2 class="section-title">每周排程（周一至周日）</h2>
+        <div class="preset-group">
+          <button type="button" class="chip-btn" data-preset="weekdays">工作日 08:00</button>
+          <button type="button" class="chip-btn" data-preset="everyday">每天 08:00</button>
+          <button type="button" class="chip-btn" data-preset="clear">全部关闭</button>
+        </div>
+      </div>
+      <div id="days-list" class="days-list"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2 class="section-title">触发参数设置</h2>
+      </div>
+
+      <div class="form-grid">
+        <div class="field">
+          <label for="message-input">发送消息内容</label>
+          <input type="text" id="message-input" maxlength="500" placeholder="你好">
+        </div>
+
+        <div class="field">
+          <label for="title-input">新建对话标题</label>
+          <input type="text" id="title-input" maxlength="100" placeholder="额度预热">
+        </div>
+
+        <div class="field">
+          <label for="model-select">模型选择</label>
+          <select id="model-select">
+            <option value="">默认跟随客户端</option>
+            <option value="flash_lite">flash_lite（最轻量）</option>
+            <option value="flash">flash（快速）</option>
+            <option value="pro">pro（高级）</option>
+            <option value="__custom__">自定义模型 ID…</option>
+          </select>
+        </div>
+
+        <div class="field hidden" id="custom-model-wrap">
+          <label for="custom-model-input">自定义模型 ID</label>
+          <input type="text" id="custom-model-input" maxlength="128" placeholder="例如 gemini-3.8-flash-high">
+        </div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="run-if-missed">
+          <span>
+            <strong>开机错过时间时补触发</strong>
+            <small>默认关闭，避免电脑较晚开机时错峰意外开启 5 小时窗口</small>
+          </span>
+        </label>
+      </div>
+    </section>
+
+    <div class="save-bar">
+      <span id="dirty-indicator" class="dirty-badge hidden">有未保存更改</span>
+      <button type="button" class="btn btn-primary" id="save-btn">保存并同步系统定时任务</button>
+    </div>
+
+    <details class="card history-card" id="history-details" open>
+      <summary class="section-head history-summary">
+        <span class="section-title">最近执行记录 <span id="history-count" class="muted-count"></span></span>
+        <button type="button" class="btn-link" id="clear-history-btn">清空</button>
+      </summary>
+      <div id="history-list" class="history-list">
+        <p class="empty-hint">暂无执行记录</p>
+      </div>
+    </details>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

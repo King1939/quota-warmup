@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <!-- Outer clock ring with ~10% margin (center 64,64, radius 46) -->
+  <circle cx="64" cy="64" r="46" stroke="#2563EB" stroke-width="8" fill="#EFF6FF" fill-opacity="0.16"/>
+  <!-- 5-hour progress arc accent -->
+  <path d="M64 18 A46 46 0 0 1 103.8 87" stroke="#F59E0B" stroke-width="8" stroke-linecap="round"/>
+  <!-- Clock ticks -->
+  <line x1="64" y1="26" x2="64" y2="33" stroke="#2563EB" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="64" y1="95" x2="64" y2="102" stroke="#2563EB" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="26" y1="64" x2="33" y2="64" stroke="#2563EB" stroke-width="4.5" stroke-linecap="round"/>
+  <line x1="95" y1="64" x2="102" y2="64" stroke="#2563EB" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Warmup lightning bolt / spark in center -->
+  <path d="M69 36 L47 68 H63 L59 92 L81 60 H65 Z" fill="#F59E0B" stroke="#1E3A8A" stroke-width="3.5" stroke-linejoin="round"/>
+</svg>

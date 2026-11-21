@@ -1,0 +1,12 @@
+# Local runtime & machine-specific state
+data/runtime.json
+data/state.json
+data/history.json
+data/wake.log
+data/pending_trigger.json
+data/trigger.lock
+data/*.tmp.*
+
+# OS & editor noise
+.DS_Store
+Thumbs.db

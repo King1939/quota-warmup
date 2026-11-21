@@ -1,0 +1,15 @@
+{
+  "name": "quota-warmup",
+  "displayName": "Quota Warmup 额度预热",
+  "description": "按周一至周日自定义时间自动唤醒 Antigravity 并发送“你好”开启五小时额度窗口；支持侧边栏可视化面板与 Windows 任务计划双引擎，跨版本更新不失效。",
+  "version": "1.0.0",
+  "author": "King1939",
+  "homepage": "https://github.com/King1939/datainsight",
+  "repository": "https://github.com/King1939/datainsight",
+  "logo": "assets/logo.svg",
+  "suggestedPrompts": [
+    "打开额度预热定时面板",
+    "设置周一到周五每天早上 8:00 自动发送你好预热额度",
+    "查看额度预热定时任务状态和最近执行记录"
+  ]
+}

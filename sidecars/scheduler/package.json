@@ -1,0 +1,6 @@
+{
+  "name": "quota-warmup-scheduler",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "UI and scheduler sidecar for the Antigravity quota-warmup plugin"
+}
